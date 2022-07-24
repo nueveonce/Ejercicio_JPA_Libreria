@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Persistencia;
 
 import Entidades.Autor;
@@ -18,10 +14,7 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-/**
- *
- * @author Roberto
- */
+
 public class AutorJpaController implements Serializable {
 
     public AutorJpaController(EntityManagerFactory emf) {
