@@ -1,16 +1,28 @@
 
 package Entidades;
 
-public class Libro {
-    
+import java.io.Serializable;
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+@Entity
+public class Libro implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long isbn;
+    @Basic    
     private String titulo;
     private Integer anio;;
     private Integer ejemplares;
     private Integer ejemplaresPrestados;
     private Integer ejemplaresRestantes;
     private Boolean alta;
+    @OneToMany
     private Autor autor;
+    @OneToMany
     private Editorial editorial;
 
     public Libro() {
