@@ -38,27 +38,27 @@ public class JPAejercicioUNO {
                     }
                     break;
                 case 4:// BORRAR AUTOR
-                        servAutor.borrarAutor();
+                    servAutor.borrarAutor();
                     break;
                 case 5:// MOSTRAR EDITORIAL
                     servEditorial.mostrarEditorial();
                     break;
-                case 6:{
-                try {
-                    // CREAR EDITORIAL
-                    
-                    servEditorial.crearEditorial();
-                } catch (Exception ex) {
-                    Logger.getLogger(JPAejercicioUNO.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+                case 6: {
+                        // CREAR EDITORIAL
+                    try {
 
-                    break;
+                        servEditorial.crearEditorial();
+                    } catch (Exception ex) {
+                        Logger.getLogger(JPAejercicioUNO.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+
+                break;
                 case 7:// MODIFICAR EDITORIAL
-                        servEditorial.modificarEditorial();
+                    servEditorial.modificarEditorial();
                     break;
                 case 8: // BORRAR EDITORIAL
-                        servEditorial.borrarEditorial();
+                    servEditorial.borrarEditorial();
                     break;
                 case 9:
                     break;
@@ -71,7 +71,7 @@ public class JPAejercicioUNO {
                 case 13:
                     break;
                 default:
-                    System.out.println("INGRESE UNA OPCION VALIDA");
+
                     break;
             }
 
