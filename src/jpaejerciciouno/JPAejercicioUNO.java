@@ -3,6 +3,7 @@ package jpaejerciciouno;
 import Entidades.Autor;
 import Persistencia.ControladoraPersistenciaAutor;
 import Servicios.ServiciosAutor;
+import Servicios.ServiciosEditorial;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,38 +11,54 @@ import java.util.logging.Logger;
 public class JPAejercicioUNO {
 
     public static void main(String[] args) {
-        ServiciosAutor a = new ServiciosAutor();
+        ServiciosAutor servAutor = new ServiciosAutor();
+        ServiciosEditorial servEditorial = new ServiciosEditorial();
         Scanner leer = new Scanner(System.in);
-     
-        int opcion; 
+
+        int opcion;
         do {
             menu();
             switch (opcion = leer.nextInt()) {
-                case 1:
+                case 1: // MOSTRAR AUTOR
+                    servAutor.mostrarAutores();
                     break;
-                case 2: {
+
+                case 2: // CREAR AUTOR
                     try {
-                        a.crearAutor();
+                        servAutor.crearAutor();
                     } catch (Exception ex) {
                         Logger.getLogger(JPAejercicioUNO.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                }
-                break;
-                case 3:
+
+                    break;
+                case 3:// MODIFICAR AUTOR
                     try {
-                        a.modificarAutor();
+                        servAutor.modificarAutor();
                     } catch (Exception e) {
                     }
                     break;
-                case 4:
+                case 4:// BORRAR AUTOR
+                        servAutor.borrarAutor();
                     break;
-                case 5:
+                case 5:// MOSTRAR EDITORIAL
+                    servEditorial.mostrarEditorial();
                     break;
-                case 6:
+                case 6:{
+                try {
+                    // CREAR EDITORIAL
+                    
+                    servEditorial.crearEditorial();
+                } catch (Exception ex) {
+                    Logger.getLogger(JPAejercicioUNO.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
                     break;
-                case 7:
+                case 7:// MODIFICAR EDITORIAL
+                        servEditorial.modificarEditorial();
                     break;
-                case 8:
+                case 8: // BORRAR EDITORIAL
+                        servEditorial.borrarEditorial();
                     break;
                 case 9:
                     break;
@@ -50,6 +67,8 @@ public class JPAejercicioUNO {
                 case 11:
                     break;
                 case 12:
+                    break;
+                case 13:
                     break;
                 default:
                     System.out.println("INGRESE UNA OPCION VALIDA");
@@ -65,16 +84,17 @@ public class JPAejercicioUNO {
         System.out.println("3 - Modificar un Autor");
         System.out.println("4 - Eliminar un Autor");
         System.out.println("");
-        System.out.println("5 - Consultar un Autor");
-        System.out.println("6 - Crear un Autor");
-        System.out.println("7 - Modificar un Autor");
-        System.out.println("8 - Eliminar un Autor");
+        System.out.println("5 - Consultar Editorial");
+        System.out.println("6 - Crear Editorial");
+        System.out.println("7 - Modificar Editorial");
+        System.out.println("8 - Eliminar Editorial");
         System.out.println("");
-        System.out.println("9 - Consultar un Autor");
-        System.out.println("10 - Crear un Autor");
-        System.out.println("11 - Modificar un Autor");
-        System.out.println("12 - Eliminar un Autor");
-        System.out.println("");
+        System.out.println("9 - Buscar Autor por nombre");
+        System.out.println("10 - Buscar libro por ISBN");
+        System.out.println("11 - Buscar libro por titulo");
+        System.out.println("12 - Buscar libro/s por nombre de  autor");
+        System.out.println("13 - Buscar libro/s por editorial");
+
         System.out.println("0 - SALIR");
         System.out.print("OPCION: ");
     }

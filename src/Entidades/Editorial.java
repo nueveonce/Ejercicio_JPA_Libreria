@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 public class Editorial implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Basic    
     private String nombre;
@@ -19,6 +19,12 @@ public class Editorial implements Serializable {
 
     public Editorial() {
     }
+
+    public Editorial(String nombre, Boolean alta) {
+        this.nombre = nombre;
+        this.alta = alta;
+    }
+    
 
     public Editorial(Integer id, String nombre, Boolean alta) {
         this.id = id;

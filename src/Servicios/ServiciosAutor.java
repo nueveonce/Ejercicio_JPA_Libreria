@@ -26,14 +26,14 @@ public class ServiciosAutor {
     }
 
     public void modificarAutor() {
-        Autor a= new Autor();
+        Autor a = new Autor();
         mostrarAutores();
         System.out.println("INGRESE EL AUTOR A EDITAR");
-        Integer buscar=leer.nextInt();
+        Integer buscar = leer.nextInt();
 
-        a=autorJPA.findAutor(buscar);
+        a = autorJPA.findAutor(buscar);
         System.out.println("Ingrese el nuevo nombre");
-        String nombre= leer.next();
+        String nombre = leer.next();
         a.setNombre(nombre);
         try {
             autorJPA.edit(a);
@@ -47,9 +47,26 @@ public class ServiciosAutor {
         List<Autor> autor = new ArrayList();
         autor = autorJPA.findAutorEntities();
         for (Autor autor1 : autor) {
-            System.out.println(autor1);
+            if (autor1.getAlta().equals(true)) {
+                System.out.println(autor1);
+            }
         }
     }
 
-    
+    public void borrarAutor() {
+            Autor a = new Autor();
+        mostrarAutores();
+        System.out.println("INGRESE EL AUTOR A BORRAR");
+        Integer buscar = leer.nextInt();
+
+        a = autorJPA.findAutor(buscar);
+      
+        a.setAlta(false);
+        try {
+            autorJPA.edit(a);
+        } catch (Exception ex) {
+            Logger.getLogger(ServiciosAutor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

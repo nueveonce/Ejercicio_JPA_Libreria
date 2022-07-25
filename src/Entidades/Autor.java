@@ -10,8 +10,9 @@ import javax.persistence.Id;
 @Entity
 
 public class Autor implements Serializable {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Basic
     private String nombre;
@@ -55,7 +56,4 @@ public class Autor implements Serializable {
         return "Autor{" + "id= " + id + ", nombre= " + nombre + ", alta= " + alta + '}';
     }
 
-    
 }
-
-
