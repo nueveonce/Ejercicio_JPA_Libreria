@@ -139,7 +139,7 @@ public class AutorJpaController implements Serializable {
             em.close();
         }
     }
-    public Autor findAutorNombre(String nombre) {
+ /*   public Autor findAutorNombre(String nombre) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Autor.class, nombre);
@@ -147,5 +147,5 @@ public class AutorJpaController implements Serializable {
             em.close();
         }
     }
-    
+   */ 
 }

@@ -11,8 +11,7 @@ import java.util.logging.Logger;
 
 
 public class ServiciosLibro {
-    LibroJpaController libroJPA= new LibroJpaController();
-    
+    LibroJpaController libroJPA= new LibroJpaController();    
     Scanner leer = new Scanner(System.in);
 
     public void crearLibro() throws Exception {

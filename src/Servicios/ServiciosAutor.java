@@ -13,6 +13,10 @@ public class ServiciosAutor {
     AutorJpaController autorJPA = new AutorJpaController();
     Scanner leer = new Scanner(System.in);
 
+    public ServiciosAutor() {
+    }
+    
+
     public void crearAutor() throws Exception {
 
         Scanner leer = new Scanner(System.in).useDelimiter("\n");

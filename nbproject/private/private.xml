@@ -3,17 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/Entidades/Libro.java</file>
-            <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/Entidades/Autor.java</file>
             <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/Servicios/ServiciosAutor.java</file>
-            <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/Persistencia/EditorialJpaController.java</file>
-            <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/Servicios/ServiciosEditorial.java</file>
             <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/jpaejerciciouno/JPAejercicioUNO.java</file>
+            <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/Servicios/ServiciosEditorial.java</file>
             <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/META-INF/persistence.xml</file>
-            <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/Entidades/Editorial.java</file>
-            <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/Persistencia/AutorJpaController.java</file>
             <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/Servicios/ServiciosLibro.java</file>
-            <file>file:/C:/Users/Roberto/Documents/NetBeansProjects/JPAejercicioUNO/src/Persistencia/LibroJpaController.java</file>
         </group>
     </open-files>
 </project-private>
