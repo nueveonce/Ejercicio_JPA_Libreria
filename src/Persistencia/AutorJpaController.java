@@ -139,5 +139,13 @@ public class AutorJpaController implements Serializable {
             em.close();
         }
     }
+    public Autor findAutorNombre(String nombre) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Autor.class, nombre);
+        } finally {
+            em.close();
+        }
+    }
     
 }

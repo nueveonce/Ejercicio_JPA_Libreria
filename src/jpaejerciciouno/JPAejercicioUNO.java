@@ -60,8 +60,13 @@ public class JPAejercicioUNO {
                 case 8: // BORRAR EDITORIAL
                     servEditorial.borrarEditorial();
                     break;
-                case 9:
-                    
+                case 9:/*
+                    try {
+                    System.out.println(servAutor.buscarPorNombre());
+                        
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }*/
                     break;
                 case 10:
                     break;

@@ -54,13 +54,13 @@ public class ServiciosAutor {
     }
 
     public void borrarAutor() {
-            Autor a = new Autor();
+        Autor a = new Autor();
         mostrarAutores();
         System.out.println("INGRESE EL AUTOR A BORRAR");
         Integer buscar = leer.nextInt();
 
         a = autorJPA.findAutor(buscar);
-      
+
         a.setAlta(false);
         try {
             autorJPA.edit(a);
@@ -68,5 +68,14 @@ public class ServiciosAutor {
             Logger.getLogger(ServiciosAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+/*
+    public Autor buscarPorNombre() {
+        System.out.println("Ingrese el Nombre del Autor a buscar: ");
+        String nombre=leer.next();
+        Autor encontrado= new Autor();
+        encontrado= autorJPA.findAutorNombre(nombre);
+        System.out.println(encontrado.toString());
+        return encontrado;
+    }
+*/
 }

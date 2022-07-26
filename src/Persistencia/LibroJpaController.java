@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -26,6 +27,10 @@ public class LibroJpaController implements Serializable {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
+
+    public LibroJpaController() {
+        emf=Persistence.createEntityManagerFactory("JPAejercicioUNOPU");
+    }
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
@@ -45,7 +50,7 @@ public class LibroJpaController implements Serializable {
         }
     }
 
-    public void edit(Libro libro) throws NonexistentEntityException, Exception {
+public void edit(Libro libro) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
