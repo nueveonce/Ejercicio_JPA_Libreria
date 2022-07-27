@@ -1,13 +1,15 @@
 
 package Servicios;
 
+import Entidades.Autor;
+import Entidades.Editorial;
 import Entidades.Libro;
 import Persistencia.LibroJpaController;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.Logger; 
 
 
 public class ServiciosLibro {
@@ -15,13 +17,29 @@ public class ServiciosLibro {
     Scanner leer = new Scanner(System.in);
 
     public void crearLibro() throws Exception {
-
+        ServiciosAutor servAutor= new ServiciosAutor();
+        ServiciosEditorial servEditorial= new ServiciosEditorial();
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-        System.out.println("Ingrese el nombre de la editorial");
+        System.out.print("Ingrese el titulo del libro: ");
         String nombre = leer.next();
-
-        Libro ed = new Libro();
+        
+        System.out.print("Ingrese el año del libro (AAAA): ");
+        Integer anio = leer.nextInt();
+        
+        System.out.print("Ingrese la cantidad de Ejemplares");
+        Integer ejemplares = leer.nextInt();        
+        
+        System.out.print("Ingrese el ID del autor");
+        servAutor.mostrarAutores();
+        Integer autorId= leer.nextInt();
+        Autor autor= servAutor.buscarPorId(autorId);
+                
+        System.out.print("Ingrese el ID la Editorial");
+        servEditorial.mostrarEditorial();
+        Integer editorialId= leer.nextInt();
+        Editorial editorial= servEditorial.buscarPorId(editorialId);
+        Libro ed = new Libro(1l, nombre, anio, ejemplares, 0, 0, true, autor, editorial);
         libroJPA.create(ed);
 
     }

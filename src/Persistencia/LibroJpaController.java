@@ -29,7 +29,7 @@ public class LibroJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     public LibroJpaController() {
-        emf=Persistence.createEntityManagerFactory("JPAejercicioUNOPU");
+        emf = Persistence.createEntityManagerFactory("JPAejercicioUNOPU");
     }
 
     public EntityManager getEntityManager() {
@@ -50,7 +50,7 @@ public class LibroJpaController implements Serializable {
         }
     }
 
-public void edit(Libro libro) throws NonexistentEntityException, Exception {
+    public void edit(Libro libro) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -139,5 +139,5 @@ public void edit(Libro libro) throws NonexistentEntityException, Exception {
             em.close();
         }
     }
-    
+
 }

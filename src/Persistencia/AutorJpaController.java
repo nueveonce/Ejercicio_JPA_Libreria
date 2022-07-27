@@ -1,10 +1,10 @@
-
 package Persistencia;
 
 import Entidades.Autor;
 import Persistencia.exceptions.NonexistentEntityException;
 import Persistencia.exceptions.PreexistingEntityException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,7 +14,6 @@ import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-
 public class AutorJpaController implements Serializable {
 
     public AutorJpaController(EntityManagerFactory emf) {
@@ -23,10 +22,9 @@ public class AutorJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     public AutorJpaController() {
-         emf=Persistence.createEntityManagerFactory("JPAejercicioUNOPU");
+        emf = Persistence.createEntityManagerFactory("JPAejercicioUNOPU");
     }
 
-    
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
@@ -34,10 +32,12 @@ public class AutorJpaController implements Serializable {
     public void create(Autor autor) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            em.persist(autor);
-            em.getTransaction().commit();
+            em = getEntityManager();//Creamos un EntityManager
+            em.getTransaction().begin(); ////Iniciamos una transacción con el método getTransaction().begin();
+            em.persist(autor);////Persistimos el objeto
+            em.getTransaction().commit();/*Terminamos la transacción con el método commit. Commit en programación
+                                        significa confirmar un conjunto de cambios, en este caso persistir el
+                                        objeto*/
         } catch (Exception ex) {
             if (findAutor(autor.getId()) != null) {
                 throw new PreexistingEntityException("Autor " + autor + " already exists.", ex);
@@ -139,13 +139,18 @@ public class AutorJpaController implements Serializable {
             em.close();
         }
     }
- /*   public Autor findAutorNombre(String nombre) {
+
+    public List<Autor> findAutorNombre(String nombre) {
         EntityManager em = getEntityManager();
+
         try {
-            return em.find(Autor.class, nombre);
+            List<Autor> encontrado = em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre").setParameter("nombre", nombre).getResultList();
+
+            return encontrado;
         } finally {
             em.close();
         }
+
     }
-   */ 
+
 }

@@ -69,4 +69,7 @@ public class ServiciosEditorial {
         }
     }
 
+  public Editorial buscarPorId(Integer editorialId){
+      return editorialJPA.findEditorial(editorialId);
+  }
 }

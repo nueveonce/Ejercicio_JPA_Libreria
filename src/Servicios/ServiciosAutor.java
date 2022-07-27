@@ -15,7 +15,6 @@ public class ServiciosAutor {
 
     public ServiciosAutor() {
     }
-    
 
     public void crearAutor() throws Exception {
 
@@ -72,14 +71,20 @@ public class ServiciosAutor {
             Logger.getLogger(ServiciosAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-/*
-    public Autor buscarPorNombre() {
+
+    public void buscarPorNombre() {
         System.out.println("Ingrese el Nombre del Autor a buscar: ");
-        String nombre=leer.next();
-        Autor encontrado= new Autor();
-        encontrado= autorJPA.findAutorNombre(nombre);
-        System.out.println(encontrado.toString());
-        return encontrado;
+        String nombre = leer.next();
+        List<Autor> aut = autorJPA.findAutorNombre(nombre);
+        for (Autor autor : aut) {
+            System.out.println(autor.toString());
+        }
+
     }
-*/
+    
+    public Autor buscarPorId(Integer id){    
+        return autorJPA.findAutor(id);                   
+    }
+        
+
 }
