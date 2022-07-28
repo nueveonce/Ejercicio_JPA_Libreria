@@ -28,7 +28,7 @@ public class ServiciosLibro {
         
         System.out.print("Ingrese la cantidad de Ejemplares");
         Integer ejemplares = leer.nextInt();        
-        
+              
         System.out.print("Ingrese el ID del autor");
         servAutor.mostrarAutores();
         Integer autorId= leer.nextInt();
@@ -38,8 +38,11 @@ public class ServiciosLibro {
         servEditorial.mostrarEditorial();
         Integer editorialId= leer.nextInt();
         Editorial editorial= servEditorial.buscarPorId(editorialId);
-        Libro ed = new Libro(1l, nombre, anio, ejemplares, 0, 0, true, autor, editorial);
-        libroJPA.create(ed);
+        System.out.println("-------------");
+        System.out.println(editorial.toString());
+        System.out.println("-------------");
+        Libro ed = new Libro(nombre, anio, ejemplares, 0, 0, true, autor, editorial);
+        libroJPA.createBook(ed);
 
     }
 

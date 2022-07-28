@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Libro implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long isbn;
     @Basic    
     private String titulo;
@@ -25,6 +25,17 @@ public class Libro implements Serializable {
     private Autor autor;
     @ManyToOne
     private Editorial editorial;
+
+    public Libro(String titulo, Integer anio, Integer ejemplares, Integer ejemplaresPrestados, Integer ejemplaresRestantes, Boolean alta, Autor autor, Editorial editorial) {
+        this.titulo = titulo;
+        this.anio = anio;
+        this.ejemplares = ejemplares;
+        this.ejemplaresPrestados = ejemplaresPrestados;
+        this.ejemplaresRestantes = ejemplaresRestantes;
+        this.alta = alta;
+        this.autor = autor;
+        this.editorial = editorial;
+    }
 
     public Libro() {
     }
@@ -40,6 +51,7 @@ public class Libro implements Serializable {
         this.autor = autor;
         this.editorial = editorial;
     }
+    
 
     public Long getIsbn() {
         return isbn;

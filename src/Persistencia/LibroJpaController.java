@@ -7,6 +7,7 @@ package Persistencia;
 
 import Entidades.Libro;
 import Persistencia.exceptions.NonexistentEntityException;
+import Persistencia.exceptions.PreexistingEntityException;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -140,4 +141,24 @@ public class LibroJpaController implements Serializable {
         }
     }
 
+        public void createBook(Libro libro) throws PreexistingEntityException, Exception {
+        EntityManager em = null;
+        try {
+            em = getEntityManager();//Creamos un EntityManager
+            em.getTransaction().begin(); ////Iniciamos una transacción con el método getTransaction().begin();
+            em.persist(libro);////Persistimos el objeto
+            em.getTransaction().commit();/*Terminamos la transacción con el método commit. Commit en programación
+                                        significa confirmar un conjunto de cambios, en este caso persistir el
+                                        objeto*/
+        } catch (Exception ex) {
+            if (findLibro(libro.getIsbn()) != null) {
+                throw new PreexistingEntityException("Libro " + libro + " already exists.", ex);
+            }
+            throw ex;
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
 }
