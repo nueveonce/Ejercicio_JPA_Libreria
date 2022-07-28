@@ -14,12 +14,11 @@ import java.util.logging.Logger;
 
 public class ServiciosLibro {
     LibroJpaController libroJPA= new LibroJpaController();    
-    Scanner leer = new Scanner(System.in);
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
     public void crearLibro() throws Exception {
         ServiciosAutor servAutor= new ServiciosAutor();
-        ServiciosEditorial servEditorial= new ServiciosEditorial();
-        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        ServiciosEditorial servEditorial= new ServiciosEditorial();        
 
         System.out.print("Ingrese el titulo del libro: ");
         String nombre = leer.next();
@@ -87,5 +86,11 @@ public class ServiciosLibro {
             Logger.getLogger(ServiciosAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    public Libro buscarPorIsbn(){
+        System.out.println("Ingrese el Libro a buscar por ISBN: ");
+        Long isbn=leer.nextLong();
+        Libro a = libroJPA.findLibro(isbn);
+        return a;
+    }
+            
 }

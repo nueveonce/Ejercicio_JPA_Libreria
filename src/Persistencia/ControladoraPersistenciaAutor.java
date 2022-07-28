@@ -14,6 +14,7 @@ public class ControladoraPersistenciaAutor {
             autorJPA.create(a);
         } catch (Exception ex) {
             Logger.getLogger(ControladoraPersistenciaAutor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }        
+        
     }
 }

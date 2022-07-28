@@ -40,7 +40,7 @@ public class ServiciosEditorial {
         } catch (Exception ex) {
             Logger.getLogger(ServiciosAutor.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }    
 
     public void mostrarEditorial() {
 

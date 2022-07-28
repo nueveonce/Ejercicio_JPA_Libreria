@@ -61,7 +61,7 @@ public class JPAejercicioUNO {
                     servEditorial.borrarEditorial();
                     break;
                 case 9:// CONSULTAR LIBRO
-                        
+                        servLibro.mostrarLibro();
                     break;
                 case 10:{
                 try {
@@ -80,7 +80,7 @@ public class JPAejercicioUNO {
                     servAutor.buscarPorNombre();
                     break;
                 case 14://Buscar libro por ISBN
-
+                        System.out.println(servLibro.buscarPorIsbn());
                     break;
                 case 15://Buscar libro por titulo
                     break;
